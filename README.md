@@ -15,6 +15,18 @@ The project focuses on backend-driven game state management, REST communication,
 * Persistent saved games
 * Retro 16-bit inspired user interface
 
+
+## 📸 Screenshots
+
+### Main screen
+
+![16-Bit Chronicles main screen](docs/screenshots/16BitChronicles-1.png)
+
+### Gameplay
+
+![16-Bit Chronicles gameplay](docs/screenshots/16BitChronicles-2.png)
+
+
 ## 🛠️ Technologies
 
 ### Backend
