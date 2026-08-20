@@ -1,126 +1,150 @@
 # 🎮 16-Bit Chronicles
 
-A retro-inspired narrative web adventure built with **Spring Boot (Java)** and **vanilla HTML/CSS/JavaScript**.
+**16-Bit Chronicles** is a retro-inspired narrative adventure game developed as a full-stack application using **Java and Spring Boot**.
 
-This project simulates a classic 16-bit JRPG-style experience featuring dynamic decisions, random events, an inventory system, and persistent save/load functionality using Hibernate.
+The project focuses on backend-driven game state management, REST communication, persistence with JPA/Hibernate, and the integration of a lightweight frontend built with vanilla HTML, CSS and JavaScript.
 
----
+## ✨ Features
 
-## 🧠 Project Overview
+* Interactive narrative adventure with player decisions
+* Dynamic game state management
+* Inventory system
+* Random events
+* Save and load game functionality
+* REST API communication between frontend and backend
+* Persistent saved games
+* Retro 16-bit inspired user interface
 
-16-Bit Chronicles is a browser-based narrative RPG where the player explores different locations, makes decisions, gains experience, collects items, and survives random events.
+## 🛠️ Technologies
 
-The goal of this project was to:
+### Backend
 
-- Practice backend architecture with Spring Boot
-- Implement clean DTO-based REST communication
-- Integrate Hibernate (JPA) for persistence
-- Design a retro UI without frameworks
-- Apply separation of concerns between layers
+* Java 21
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* Maven
+* REST API
 
----
+### Frontend
 
-## ⚙️ Tech Stack
+* HTML5
+* CSS3
+* JavaScript
+* Fetch API
 
-- **Java 21**
-- **Spring Boot**
-- **Spring Data JPA (Hibernate)**
-- **H2 Database**
-- **Maven (Wrapper)**
-- **HTML / CSS / Vanilla JavaScript (Fetch API)**
+### Database
 
----
+* H2 Database
 
-## 🏗 Architecture
+## 🏗️ Architecture
 
-The project follows a layered structure:
+The application follows a layered architecture with separation of responsibilities:
 
+```text
+Frontend
+   │
+   ▼
+REST API
+   │
+   ▼
+Controller
+   │
+   ▼
+Service
+   │
+   ▼
+Repository
+   │
+   ▼
+JPA / Hibernate
+   │
+   ▼
+H2 Database
+```
 
-######
-controller → handles HTTP endpoints
-service → contains game logic
-model → core domain classes
-entity → JPA persistence layer
-repository → database access
-dto → API communication objects
-config → game constants
-######
+The project is structured around controllers for HTTP communication, services for application and game logic, repositories for data access, DTOs for transferring information between layers, and JPA entities for persistence.
 
+## 🔌 REST API
 
-Key features:
+The frontend communicates with the Spring Boot backend through REST endpoints responsible for operations such as:
 
-- Dynamic decisions per location
-- Random event system with probability handling
-- Player inventory system (backpack with capacity)
-- Item usage logic (e.g., healing herbs)
-- Game Over handling
-- Save and Load functionality via Hibernate
-- Custom player name at game start
+* Starting a new game
+* Processing player decisions
+* Using inventory items
+* Resetting the game
+* Saving a game
+* Loading a saved game
 
----
+The frontend consumes these services asynchronously using the JavaScript Fetch API.
 
-## 🎮 Gameplay Features
+## 💾 Persistence
 
-- 🗺 Multiple locations
-- 🎲 Randomized events
-- ❤️ Health & experience system
-- 🎒 Inventory with item stacking
-- 💾 Save & resume game
-- ☠ Game Over state handling
+Saved games are persisted using **Spring Data JPA and Hibernate**, with an H2 database providing the application's data storage layer.
 
----
+This allows the application to restore previously saved game states.
 
-## 🚀 Running the Project
+## 🚀 Running the project
+
+### Requirements
+
+* Java 21
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/SyntheticFreshMeat/16-bit-chronicles.git
+git clone https://github.com/JosepRC80/16-bit-chronicles.git
 cd 16-bit-chronicles
+```
 
+Run the tests:
 
-Run using Maven Wrapper:
-mvnw.cmd spring-boot:run
+```bash
+./mvnw test
+```
 
-Then open;
+On Windows:
+
+```powershell
+.\mvnw.cmd test
+```
+
+Start the application:
+
+```bash
+./mvnw spring-boot:run
+```
+
+On Windows:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+Then open:
+
+```text
 http://localhost:8080/index.html
+```
 
+## 🎯 What I worked on
 
-################################################################################
-Why This Project?
+This project allowed me to practise and consolidate:
 
-This project demonstrates:
+* Object-oriented programming with Java
+* Development with Spring Boot
+* Layered application architecture
+* REST API design and consumption
+* Separation of responsibilities
+* DTO usage
+* Persistence with JPA/Hibernate
+* Repository pattern with Spring Data
+* Frontend/backend communication
+* Maven dependency management
+* Integration of JavaScript with a Java backend
 
-Backend-driven state management
+## 👤 Author
 
-Clean REST communication
+**Josep Riego Cladera**
 
-Basic game engine logic
-
-Practical Hibernate usage
-
-Full-stack integration without heavy frontend frameworks
-
-It was built as a learning project to consolidate backend fundamentals while keeping the frontend lightweight and controlled.
-
-
-
-
-Future Improvements (Optional)
-
-Authentication per player
-
-Multiple save slots
-
-More item types and effects
-
-Refactoring into a more modular architecture
-
-Deployment to cloud platform
-
-
-                            ####################
-                            ####   Author  #####
-
-Developed by Josep
-Backend-focused developer passionate about clean architecture and retro-inspired systems.
+Developed as part of my learning and portfolio in web application development.
